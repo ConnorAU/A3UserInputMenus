@@ -25,7 +25,10 @@ if (_button2 == "") then {
 		_ctrlButtonL ctrlShow false;
 		_ctrlButtonLShown = false;
 	} else {
-		_ctrlButtonL ctrlSetText localize "STR_DISP_OK";
+		_ctrlButtonL ctrlSetText ([
+			_button1,
+			localize "STR_DISP_OK"
+		] select (_button1 == ""));
 	};
 } else {
 	_ctrlButtonL ctrlSetText _button1;
