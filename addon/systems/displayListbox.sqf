@@ -19,8 +19,8 @@ switch _mode do {
 	};
 	case "init":{
 		_params params [
-			["_title","",[""]],
 			["_items",[],[[]]],
+			["_title","",[""]],
 			["_button1","",[""]],
 			["_code1",{},[{}]],
 			["_button2","",[""]],
@@ -32,7 +32,6 @@ switch _mode do {
 		#include "_common.inc"
 
 		lbClear _ctrlInput;
-		private _index = -1;
 		{
 			_x params [
 				["_textLData",[],[[]]],
@@ -44,31 +43,25 @@ switch _mode do {
 				["_value",-1,[0]]
 			];
 			
-			{
-				_x params [["_text","",[""]],["_color",[1,1,1,1],[[]],4]];
-				switch _forEachIndex do {
-					case 0:{
-						_index = _ctrlInput lbAdd _text;
-						_ctrlInput lbSetColor [_index,_color];
-						_ctrlInput lbSetSelectColor [_index,_color];
-					};
-					case 1:{
-						_ctrlInput lbSetTextRight [_index,_text];
-						_ctrlInput lbSetColorRight [_index,_color];
-						_ctrlInput lbSetSelectColorRight [_index,_color];
-					};
-					case 2:{
-						_ctrlInput lbSetPicture [_index,_text];
-						_ctrlInput lbSetPictureColor [_index,_color];
-						_ctrlInput lbSetPictureColorSelected [_index,_color];
-					};
-					case 3:{
-						_ctrlInput lbSetPictureRight [_index,_text];
-						_ctrlInput lbSetPictureRightColor [_index,_color];
-						_ctrlInput lbSetPictureRightColorSelected [_index,_color];
-					};
-				};
-			} foreach [_textLData,_textRData,_iconLData,_iconRData];
+			_textLData params [["_text","",[""]],["_color",[1,1,1,1],[[]],4]];
+			private _index = _ctrlInput lbAdd _text;
+			_ctrlInput lbSetColor [_index,_color];
+			_ctrlInput lbSetSelectColor [_index,_color];
+
+			_textRData params [["_text","",[""]],["_color",[1,1,1,1],[[]],4]];
+			_ctrlInput lbSetTextRight [_index,_text];
+			_ctrlInput lbSetColorRight [_index,_color];
+			_ctrlInput lbSetSelectColorRight [_index,_color];
+
+			_iconLData params [["_text","",[""]],["_color",[1,1,1,1],[[]],4]];
+			_ctrlInput lbSetPicture [_index,_text];
+			_ctrlInput lbSetPictureColor [_index,_color];
+			_ctrlInput lbSetPictureColorSelected [_index,_color];
+
+			_iconRData params [["_text","",[""]],["_color",[1,1,1,1],[[]],4]];
+			_ctrlInput lbSetPictureRight [_index,_text];
+			_ctrlInput lbSetPictureRightColor [_index,_color];
+			_ctrlInput lbSetPictureRightColorSelected [_index,_color];
 
 			_ctrlInput lbSetTooltip [_index,_tooltip];
 			_ctrlInput lbSetData [_index,_data];

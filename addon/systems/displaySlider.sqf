@@ -19,10 +19,10 @@ switch _mode do {
 	};
 	case "init":{
 		_params params [
-			["_title","",[""]],
 			["_range",[0,0],[[]],2],
 			["_position",0,[0]],
 			["_speed",[1,1],[[]],2],
+			["_title","",[""]],
 			["_button1","",[""]],
 			["_code1",{},[{}]],
 			["_button2","",[""]],
