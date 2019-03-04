@@ -7,7 +7,7 @@
 └──────────────────────────────────────────────────────*/
 
 class ConnorAU_UserInputMenus {
-    tag="CAU_uim";
+    tag="CAU_UserInputMenus";
 	class Functions {
 		#define FUNC(name) class name {file = cau\userinputmenus\systems\display##name##.sqf;};
 		FUNC(guiMessage)

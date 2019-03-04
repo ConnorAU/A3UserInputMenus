@@ -11,7 +11,7 @@
 
 class CAU_UserInputMenus_displayText {
     idd=-1;
-    onLoad=["onLoad",_this] call CAU_uim_fnc_text;
+    onLoad=["onLoad",_this] call CAU_UserInputMenus_fnc_text;
 
     class controlsBackground {
         class tiles: CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles {};

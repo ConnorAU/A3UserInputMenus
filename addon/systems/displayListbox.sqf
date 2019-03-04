@@ -6,7 +6,7 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#define THIS_FUNC CAU_uim_fnc_listbox
+#define THIS_FUNC CAU_UserInputMenus_fnc_listbox
 #define DISPLAY_NAME CAU_UserInputMenus_displayListbox
 
 #include "_defines.inc"

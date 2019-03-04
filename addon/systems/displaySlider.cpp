@@ -11,7 +11,7 @@
 
 class CAU_UserInputMenus_displaySlider {
     idd=-1;
-    onLoad=["onLoad",_this] call CAU_uim_fnc_slider;
+    onLoad=["onLoad",_this] call CAU_UserInputMenus_fnc_slider;
 
     class controlsBackground {
         class tiles: CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles {};

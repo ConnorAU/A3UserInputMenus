@@ -6,7 +6,7 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#define THIS_FUNC CAU_uim_fnc_slider
+#define THIS_FUNC CAU_UserInputMenus_fnc_slider
 #define DISPLAY_NAME CAU_UserInputMenus_displaySlider
 
 #include "_defines.inc"
