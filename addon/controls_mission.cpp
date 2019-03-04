@@ -1,4 +1,4 @@
-class CAU_ctrlDefault
+class CAU_UserInputMenus_ctrlDefault
 {
 	access=0;
 	idc=-1;
@@ -29,13 +29,13 @@ class CAU_ctrlDefault
 		color[]={1,1,1,1};
 	};
 };
-class CAU_ctrlDefaultText: CAU_ctrlDefault
+class CAU_UserInputMenus_ctrlDefaultText: CAU_UserInputMenus_ctrlDefault
 {
 	sizeEx="4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
 	font="RobotoCondensedLight";
 	shadow=1;
 };
-class CAU_ctrlDefaultButton: CAU_ctrlDefaultText
+class CAU_UserInputMenus_ctrlDefaultButton: CAU_UserInputMenus_ctrlDefaultText
 {
 	soundClick[]=
 	{
@@ -62,7 +62,7 @@ class CAU_ctrlDefaultButton: CAU_ctrlDefaultText
 		1
 	};
 };
-class CAU_ctrlStatic: CAU_ctrlDefaultText
+class CAU_UserInputMenus_ctrlStatic: CAU_UserInputMenus_ctrlDefaultText
 {
 	type=0;
 	colorBackground[]={0,0,0,0};
@@ -93,11 +93,11 @@ class CAU_ctrlStatic: CAU_ctrlDefaultText
 	onMouseHolding="";
 	onVideoStopped="";
 };
-class CAU_ctrlStaticBackground: CAU_ctrlStatic
+class CAU_UserInputMenus_ctrlStaticBackground: CAU_UserInputMenus_ctrlStatic
 {
 	colorBackground[]={0.2,0.2,0.2,1};
 };
-class CAU_ctrlStaticTitle: CAU_ctrlStatic
+class CAU_UserInputMenus_ctrlStaticTitle: CAU_UserInputMenus_ctrlStatic
 {
 	moving=1;
 	colorBackground[]=
@@ -109,15 +109,15 @@ class CAU_ctrlStaticTitle: CAU_ctrlStatic
 	};
 	colorText[]={1,1,1,1};
 };
-class CAU_ctrlStaticFooter: CAU_ctrlStatic
+class CAU_UserInputMenus_ctrlStaticFooter: CAU_UserInputMenus_ctrlStatic
 {
 	colorBackground[]={0,0,0,0.30000001};
 };
-class CAU_ctrlStaticPictureTile: CAU_ctrlStatic
+class CAU_UserInputMenus_ctrlStaticPictureTile: CAU_UserInputMenus_ctrlStatic
 {
 	style=144;
 };
-class CAU_ctrlStaticBackgroundDisableTiles: CAU_ctrlStaticPictureTile
+class CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles: CAU_UserInputMenus_ctrlStaticPictureTile
 {
 	x=-4;
 	y=-2;
@@ -128,7 +128,7 @@ class CAU_ctrlStaticBackgroundDisableTiles: CAU_ctrlStaticPictureTile
 	tileH="4 / (32 * pixelH)";
 	colorText[]={1,1,1,0.050000001};
 };
-class CAU_ctrlButton: CAU_ctrlDefaultButton
+class CAU_UserInputMenus_ctrlButton: CAU_UserInputMenus_ctrlDefaultButton
 {
 	type=1;
 	style="0x02 + 0xC0";
@@ -189,7 +189,7 @@ class CAU_ctrlButton: CAU_ctrlDefaultButton
 	onButtonDown="";
 	onButtonUp="";
 };
-class CAU_ctrlEdit: CAU_ctrlDefaultText
+class CAU_UserInputMenus_ctrlEdit: CAU_UserInputMenus_ctrlDefaultText
 {
 	type=2;
 	colorBackground[]={0,0,0,0.5};
@@ -219,11 +219,11 @@ class CAU_ctrlEdit: CAU_ctrlDefaultText
 	onMouseMoving="";
 	onMouseHolding="";
 };
-class CAU_ctrlEditMulti: CAU_ctrlEdit
+class CAU_UserInputMenus_ctrlEditMulti: CAU_UserInputMenus_ctrlEdit
 {
 	style=16;
 };
-class CAU_ctrlListbox: CAU_ctrlDefaultText
+class CAU_UserInputMenus_ctrlListbox: CAU_UserInputMenus_ctrlDefaultText
 {
 	type=5;
 	style="0x00 + 0x10";
@@ -289,7 +289,7 @@ class CAU_ctrlListbox: CAU_ctrlDefaultText
 	onLBDragging="";
 	onLBDrop="";
 };
-class CAU_ctrlStructuredText: CAU_ctrlDefaultText
+class CAU_UserInputMenus_ctrlStructuredText: CAU_UserInputMenus_ctrlDefaultText
 {
 	type=13;
 	colorBackground[]={0,0,0,0};
@@ -306,7 +306,7 @@ class CAU_ctrlStructuredText: CAU_ctrlDefaultText
 	onCanDestroy="";
 	onDestroy="";
 };
-class CAU_ctrlXSliderV: CAU_ctrlDefault
+class CAU_UserInputMenus_ctrlXSliderV: CAU_UserInputMenus_ctrlDefault
 {
 	type=43;
 	style=0;
@@ -361,7 +361,7 @@ class CAU_ctrlXSliderV: CAU_ctrlDefault
 	onMouseHolding="";
 	onSliderPosChanged="";
 };
-class CAU_ctrlXSliderH: CAU_ctrlXSliderV
+class CAU_UserInputMenus_ctrlXSliderH: CAU_UserInputMenus_ctrlXSliderV
 {
 	style=1024;
 };

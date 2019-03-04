@@ -14,8 +14,8 @@ class CAU_UserInputMenus_displaySlider {
     onLoad=["onLoad",_this] call CAU_uim_fnc_slider;
 
     class controlsBackground {
-        class tiles: CAU_ctrlStaticBackgroundDisableTiles {};
-        class background: CAU_ctrlStaticBackground {
+        class tiles: CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles {};
+        class background: CAU_UserInputMenus_ctrlStaticBackground {
             idc=IDC_BACKGROUND;
 
             x=CENTER_XA(DIALOG_W);
@@ -23,7 +23,7 @@ class CAU_UserInputMenus_displaySlider {
             w=PX_WA(DIALOG_W);
             h=PX_HA(DIALOG_H);
         };
-        class title: CAU_ctrlStaticTitle {
+        class title: CAU_UserInputMenus_ctrlStaticTitle {
             idc=IDC_TITLE;
 
             x=CENTER_XA(DIALOG_W);
@@ -31,7 +31,7 @@ class CAU_UserInputMenus_displaySlider {
             w=PX_WA(DIALOG_W);
             h=PX_HA(SIZE_M);
         };
-        class footer: CAU_ctrlStaticFooter {
+        class footer: CAU_UserInputMenus_ctrlStaticFooter {
             idc=IDC_FOOTER;
 
             x=CENTER_XA(DIALOG_W);
@@ -41,7 +41,7 @@ class CAU_UserInputMenus_displaySlider {
         };
     };
     class controls {
-        class text: CAU_ctrlXSliderH {
+        class text: CAU_UserInputMenus_ctrlXSliderH {
             idc=IDC_INPUT;
             size=PX_HA(SIZE_M);
 
@@ -50,7 +50,7 @@ class CAU_UserInputMenus_displaySlider {
             w=PX_WA(DIALOG_W) - PX_WA(4);
             h=PX_HA(SIZE_M);
         };
-        class buttonL: CAU_ctrlButton {
+        class buttonL: CAU_UserInputMenus_ctrlButton {
             idc=IDC_BUTTONL;
 
             x=CENTER_XA(DIALOG_W) + PX_WA(DIALOG_W) - PX_WA(((SIZE_M*6)*2)) - PX_WA(2);

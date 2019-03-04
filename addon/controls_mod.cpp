@@ -8,22 +8,22 @@
 
 // The purpose of these defines is to allow one version of the UIs for use in the mission & mod, with the mission using CAU_ specific ctrls defined inside the mission (to allow inheriting, prevent conflicts and avoid using ctrlCreate) and the mod using base arma ctrls because they are the same in the end.
 
-#define CAU_ctrlDefault ctrlDefault
-#define CAU_ctrlDefaultText ctrlDefaultText
-#define CAU_ctrlDefaultButton ctrlDefaultButton
-#define CAU_ctrlStatic ctrlStatic
-#define CAU_ctrlStaticBackground ctrlStaticBackground
-#define CAU_ctrlStaticTitle ctrlStaticTitle
-#define CAU_ctrlStaticFooter ctrlStaticFooter
-#define CAU_ctrlStaticPictureTile ctrlStaticPictureTile
-#define CAU_ctrlStaticBackgroundDisableTiles ctrlStaticBackgroundDisableTiles
-#define CAU_ctrlButton ctrlButton
-#define CAU_ctrlEdit ctrlEdit
-#define CAU_ctrlEditMulti ctrlEditMulti
-#define CAU_ctrlListbox ctrlListbox
-#define CAU_ctrlStructuredText ctrlStructuredText
-#define CAU_ctrlXSliderV ctrlXSliderV
-#define CAU_ctrlXSliderH ctrlXSliderH
+#define CAU_UserInputMenus_ctrlDefault ctrlDefault
+#define CAU_UserInputMenus_ctrlDefaultText ctrlDefaultText
+#define CAU_UserInputMenus_ctrlDefaultButton ctrlDefaultButton
+#define CAU_UserInputMenus_ctrlStatic ctrlStatic
+#define CAU_UserInputMenus_ctrlStaticBackground ctrlStaticBackground
+#define CAU_UserInputMenus_ctrlStaticTitle ctrlStaticTitle
+#define CAU_UserInputMenus_ctrlStaticFooter ctrlStaticFooter
+#define CAU_UserInputMenus_ctrlStaticPictureTile ctrlStaticPictureTile
+#define CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles ctrlStaticBackgroundDisableTiles
+#define CAU_UserInputMenus_ctrlButton ctrlButton
+#define CAU_UserInputMenus_ctrlEdit ctrlEdit
+#define CAU_UserInputMenus_ctrlEditMulti ctrlEditMulti
+#define CAU_UserInputMenus_ctrlListbox ctrlListbox
+#define CAU_UserInputMenus_ctrlStructuredText ctrlStructuredText
+#define CAU_UserInputMenus_ctrlXSliderV ctrlXSliderV
+#define CAU_UserInputMenus_ctrlXSliderH ctrlXSliderH
 
 class ctrlDefault;
 class ctrlDefaultText;
