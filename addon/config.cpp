@@ -7,7 +7,7 @@
 └──────────────────────────────────────────────────────*/
 
 class CfgPatches {
-	class ConnorAU_UserInputMenus {
+	class CAU_UserInputMenus {
         name="UserInputMenus";
         author="ConnorAU";
         url="https://github.com/ConnorAU/A3UserInputMenus";
