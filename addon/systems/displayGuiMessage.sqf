@@ -37,7 +37,7 @@ switch _mode do {
 		private _ctrlInputHeight = ctrlTextHeight _ctrlInput;
 
 		private _ctrlBackgroundPos = ctrlPosition _ctrlBackground;
-		_ctrlBackgroundPos set [3,_ctrlInputHeight + PX_HA(SIZE_M) + PX_HA(SIZE_XXL) + PX_HA(2)];
+		_ctrlBackgroundPos set [3,_ctrlInputHeight + PX_HA(SIZE_M) + PX_HA(SIZE_XXL) + PX_HA(4)];
 		_ctrlBackgroundPos set [1,CENTER_Y - (0.5*(_ctrlBackgroundPos#3))];
 		_ctrlBackground ctrlSetPosition _ctrlBackgroundPos;
 		_ctrlBackground ctrlCommit 0;
@@ -54,7 +54,7 @@ switch _mode do {
 
 		private _ctrlInputPos = ctrlPosition _ctrlInput;
 		_ctrlInputPos set [3,_ctrlInputHeight];
-		_ctrlInputPos set [1,_ctrlBackgroundPos#1 + _ctrlTitlePos#3 + PX_HA(1)];
+		_ctrlInputPos set [1,_ctrlBackgroundPos#1 + _ctrlTitlePos#3 + PX_HA(2)];
 		_ctrlInput ctrlSetPosition _ctrlInputPos;
 		_ctrlInput ctrlCommit 0;
 
