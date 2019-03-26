@@ -15,26 +15,27 @@ USE_CTRL(_ctrlInput,IDC_INPUT);
 USE_CTRL(_ctrlButtonL,IDC_BUTTONL);
 USE_CTRL(_ctrlButtonR,IDC_BUTTONR);
 
-_display setVariable ["true",_code1];
-_display setVariable ["false",_code2];
+_display setVariable ["code",_code];
+_display setVariable ["return",_return];
 _ctrlTitle ctrlSetText _title;
+
 private _ctrlButtonLShown = true;
-if (_button2 == "") then {
-	if (str _code2 == "{}") then {
-		_ctrlButtonL ctrlEnable false;
-		_ctrlButtonL ctrlShow false;
-		_ctrlButtonLShown = false;
-	} else {
-		_ctrlButtonL ctrlSetText ([
-			_button1,
-			localize "STR_DISP_OK"
-		] select (_button1 == ""));
-	};
+if (_button2 isEqualType 0) then {
+	_ctrlButtonL ctrlEnable false;
+	_ctrlButtonL ctrlShow false;
+	_ctrlButtonLShown = false;
 } else {
-	_ctrlButtonL ctrlSetText _button1;
+	_ctrlButtonL ctrlSetText ([
+		_button1,
+		localize "STR_DISP_OK"
+	] select (_button1 == ""));
 };
+
 if _ctrlButtonLShown then {
-	_ctrlButtonL ctrlAddEventHandler ["ButtonClick",{["return",[ctrlParent(_this#0),true]] call THIS_FUNC}];
+	_ctrlButtonL ctrlAddEventHandler ["ButtonClick",{
+		USE_DISPLAY(ctrlParent(_this#0));
+		[_display,true] call (_display getVariable ["return",{}]);
+	}];
 };
 private _ctrlButtonRText = [_button1,_button2] select _ctrlButtonLShown;
 _ctrlButtonR ctrlSetText ([
@@ -43,15 +44,18 @@ _ctrlButtonR ctrlSetText ([
 		localize "STR_DISP_OK",
 		localize "STR_DISP_CANCEL"
 	] select _ctrlButtonLShown
-] select (_ctrlButtonRText == ""));
-_ctrlButtonR ctrlAddEventHandler ["ButtonClick",
-	format["['return',[ctrlParent(_this#0),%1]] call %2",!_ctrlButtonLShown,QUOTE(THIS_FUNC)]
+] select (_ctrlButtonRText in ["",0]));
+
+_ctrlButtonR ctrlAddEventHandler ["ButtonClick",format["
+	private _display = ctrlParent(_this#0);
+	[_display,%1] call (_display getVariable ['return',{}]);
+",!_ctrlButtonLShown]
 ];
 _display displayAddEventHandler ["KeyDown",[
 	{_this#1 == 1},
 	{
 		if (_this#1 == 1) then {
-			["return",[_this#0,false]] call THIS_FUNC;
+			[_this#0,false] call ((_this#0) getVariable ['return',{}]);
 		};
 	}
 ] select _ctrlButtonLShown];

@@ -11,7 +11,7 @@
 
 class CAU_UserInputMenus_displayListbox {
     idd=-1;
-    onLoad=["onLoad",_this] call CAU_UserInputMenus_fnc_listbox;
+    onLoad="uinameSpace setVariable ['CAU_UserInputMenus_displayListbox',_this#0]";
 
     class controlsBackground {
         class tiles: CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles {};

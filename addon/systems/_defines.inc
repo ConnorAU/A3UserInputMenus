@@ -10,16 +10,11 @@
 #define QUOTE(a) #a
 #define JOIN(a,b) a##b
 
-#define SWITCH_SYS_PARAMS params[["_mode","",[""]],["_params",[]]]
-
-#ifdef THIS_FUNC
+#ifdef DISPLAY_NAME
+    #define THIS_DISPLAY DISPLAY(DISPLAY_NAME)
     #define DISPLAY(name) uiNameSpace getVariable [QUOTE(name),displayNull]
     #define USE_DISPLAY(display) private _display = display
     #define USE_CTRL(ctrl,idc) private ctrl = _display displayCtrl idc
-#endif
-
-#ifdef DISPLAY_NAME
-    #define THIS_DISPLAY DISPLAY(DISPLAY_NAME)
 #endif
 
 // ~ UI Positioning
@@ -35,6 +30,7 @@
 #define IDC_BACKGROUND 1
 #define IDC_TITLE 2
 #define IDC_FOOTER 3
-#define IDC_INPUT 4
-#define IDC_BUTTONL 5
-#define IDC_BUTTONR 6
+#define IDC_INPUTCONTAINER 4
+#define IDC_INPUT 5
+#define IDC_BUTTONL 6
+#define IDC_BUTTONR 7

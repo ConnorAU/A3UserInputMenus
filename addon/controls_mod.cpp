@@ -21,6 +21,7 @@
 #define CAU_UserInputMenus_ctrlEdit ctrlEdit
 #define CAU_UserInputMenus_ctrlEditMulti ctrlEditMulti
 #define CAU_UserInputMenus_ctrlListbox ctrlListbox
+#define CAU_UserInputMenus_ctrlControlsGroup ctrlControlsGroup
 #define CAU_UserInputMenus_ctrlStructuredText ctrlStructuredText
 #define CAU_UserInputMenus_ctrlXSliderV ctrlXSliderV
 #define CAU_UserInputMenus_ctrlXSliderH ctrlXSliderH
@@ -38,6 +39,7 @@ class ctrlButton;
 class ctrlEdit;
 class ctrlEditMulti;
 class ctrlListbox;
+class ctrlControlsGroup;
 class ctrlStructuredText;
 class ctrlXSliderV;
 class ctrlXSliderH;

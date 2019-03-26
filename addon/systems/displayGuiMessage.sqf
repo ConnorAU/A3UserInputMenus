@@ -6,72 +6,73 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#define THIS_FUNC CAU_UserInputMenus_fnc_guiMessage
 #define DISPLAY_NAME CAU_UserInputMenus_displayGuiMessage
 
 #include "_macros.inc"
 #include "_defines.inc"
 
-SWITCH_SYS_PARAMS;
+params [
+	["_text","",[""]],
+	["_title","",[""]],
+	["_code",{},[{}]],
+	["_button1","",[""]],
+	["_button2",0,[""]]
+];
 
-switch _mode do {
-	case "onLoad":{
-		uiNamespace setVariable [QUOTE(DISPLAY_NAME),_params#0];
-	};
-	case "init":{
-		_params params [
-			["_text","",[""]],
-			["_title","",[""]],
-			["_button1","",[""]],
-			["_code1",{},[{}]],
-			["_button2","",[""]],
-			["_code2",{},[{}]]
-		];
+createDialog QUOTE(DISPLAY_NAME);
 
-		createDialog QUOTE(DISPLAY_NAME);
-
-		#include "_common.inc"
-
-		_ctrlInput ctrlSetStructuredText parseText _text;
-
-		private _ctrlInputHeight = ctrlTextHeight _ctrlInput;
-
-		private _ctrlBackgroundPos = ctrlPosition _ctrlBackground;
-		_ctrlBackgroundPos set [3,_ctrlInputHeight + PX_HA(SIZE_M) + PX_HA(SIZE_XXL) + PX_HA(4)];
-		_ctrlBackgroundPos set [1,CENTER_Y - (0.5*(_ctrlBackgroundPos#3))];
-		_ctrlBackground ctrlSetPosition _ctrlBackgroundPos;
-		_ctrlBackground ctrlCommit 0;
-
-		private _ctrlTitlePos = ctrlPosition _ctrlTitle;
-		_ctrlTitlePos set [1,_ctrlBackgroundPos#1];
-		_ctrlTitle ctrlSetPosition _ctrlTitlePos;
-		_ctrlTitle ctrlCommit 0;
-
-		private _ctrlFooterPos = ctrlPosition _ctrlFooter;
-		_ctrlFooterPos set [1,_ctrlBackgroundPos#1 + _ctrlBackgroundPos#3 - _ctrlFooterPos#3];
-		_ctrlFooter ctrlSetPosition _ctrlFooterPos;
-		_ctrlFooter ctrlCommit 0;
-
-		private _ctrlInputPos = ctrlPosition _ctrlInput;
-		_ctrlInputPos set [3,_ctrlInputHeight];
-		_ctrlInputPos set [1,_ctrlBackgroundPos#1 + _ctrlTitlePos#3 + PX_HA(2)];
-		_ctrlInput ctrlSetPosition _ctrlInputPos;
-		_ctrlInput ctrlCommit 0;
-
-		private _ctrlButtonLPos = ctrlPosition _ctrlButtonL;
-		_ctrlButtonLPos set [1,_ctrlFooterPos#1 + PX_HA(1)];
-		_ctrlButtonL ctrlSetPosition _ctrlButtonLPos;
-		_ctrlButtonL ctrlCommit 0;
-
-		private _ctrlButtonRPos = ctrlPosition _ctrlButtonR;
-		_ctrlButtonRPos set [1,_ctrlFooterPos#1 + PX_HA(1)];
-		_ctrlButtonR ctrlSetPosition _ctrlButtonRPos;
-		_ctrlButtonR ctrlCommit 0;
-	};
-	case "return":{
-		_params params ["_display","_bool"];
-		private _code = _display getVariable [str _bool,{}];
-		_display closeDisplay 2;
-		[] call _code;
+private _return = {
+	params ["_display","_confirmed"];
+	private _code = _display getVariable ["code",{}];
+	_display closeDisplay 2;
+	_code call {
+		private ["_display","_code"];
+		[] call _this;
 	};
 };
+
+#include "_common.inc"
+
+_ctrlInput ctrlSetStructuredText parseText _text;
+
+private _ctrlInputHeight = ctrlTextHeight _ctrlInput;
+private _ctrlMaxHeight = PX_HA(((safezoneH/GRID_H) - 10));
+
+private _ctrlBackgroundPos = ctrlPosition _ctrlBackground;
+_ctrlBackgroundPos set [3,_ctrlMaxHeight min (_ctrlInputHeight + PX_HA(SIZE_M) + PX_HA(SIZE_XXL) + PX_HA(4))];
+_ctrlBackgroundPos set [1,CENTER_Y - (0.5*(_ctrlBackgroundPos#3))];
+_ctrlBackground ctrlSetPosition _ctrlBackgroundPos;
+_ctrlBackground ctrlCommit 0;
+
+private _ctrlTitlePos = ctrlPosition _ctrlTitle;
+_ctrlTitlePos set [1,_ctrlBackgroundPos#1];
+_ctrlTitle ctrlSetPosition _ctrlTitlePos;
+_ctrlTitle ctrlCommit 0;
+
+private _ctrlFooterPos = ctrlPosition _ctrlFooter;
+_ctrlFooterPos set [1,_ctrlBackgroundPos#1 + _ctrlBackgroundPos#3 - _ctrlFooterPos#3];
+_ctrlFooter ctrlSetPosition _ctrlFooterPos;
+_ctrlFooter ctrlCommit 0;
+
+USE_CTRL(_ctrlInputContainer,IDC_INPUTCONTAINER);
+private _ctrlInputContainerPos = ctrlPosition _ctrlInputContainer;
+_ctrlInputContainerPos set [1,_ctrlBackgroundPos#1 + _ctrlTitlePos#3 + PX_HA(2)];
+_ctrlInputContainerPos set [3,(_ctrlMaxHeight - PX_HA(SIZE_M) - PX_HA(SIZE_XXL) - PX_HA(4)) min _ctrlInputHeight];
+_ctrlInputContainer ctrlSetPosition _ctrlInputContainerPos;
+_ctrlInputContainer ctrlCommit 0;
+
+private _ctrlInputPos = ctrlPosition _ctrlInput;
+//_ctrlInputPos set [1,_ctrlBackgroundPos#1 + _ctrlTitlePos#3 + PX_HA(2)];
+_ctrlInputPos set [3,_ctrlInputHeight];
+_ctrlInput ctrlSetPosition _ctrlInputPos;
+_ctrlInput ctrlCommit 0;
+
+private _ctrlButtonLPos = ctrlPosition _ctrlButtonL;
+_ctrlButtonLPos set [1,_ctrlFooterPos#1 + PX_HA(1)];
+_ctrlButtonL ctrlSetPosition _ctrlButtonLPos;
+_ctrlButtonL ctrlCommit 0;
+
+private _ctrlButtonRPos = ctrlPosition _ctrlButtonR;
+_ctrlButtonRPos set [1,_ctrlFooterPos#1 + PX_HA(1)];
+_ctrlButtonR ctrlSetPosition _ctrlButtonRPos;
+_ctrlButtonR ctrlCommit 0;
