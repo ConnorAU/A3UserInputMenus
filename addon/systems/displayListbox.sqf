@@ -15,10 +15,15 @@ params [
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
-	["_button2",0,[""]]
+	["_button2",0,[""]],
+	["_parentDisplay",displayNull,[displayNull]]
 ];
 
-createDialog QUOTE(DISPLAY_NAME);
+if (!isNull _parentDisplay) then {
+	_parentDisplay createDisplay QUOTE(DISPLAY_NAME);
+} else {
+	createDialog QUOTE(DISPLAY_NAME);
+};
 
 private _return = {
 	params ["_display","_confirmed"];
