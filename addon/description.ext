@@ -10,9 +10,11 @@ class CfgFunctions {
     #include "cau\userinputmenus\CfgFunctions.cpp"
 };
 
-#include "cau\userinputmenus\controls.cpp"
 #include "cau\userinputmenus\systems\_macros.inc"
 #include "cau\userinputmenus\systems\_defines.inc"
+
+#include "cau\userinputmenus\controls.cpp"
+#include "cau\userinputmenus\systems\displayColorPicker.cpp"
 #include "cau\userinputmenus\systems\displayGuiMessage.cpp"
 #include "cau\userinputmenus\systems\displayListbox.cpp"
 #include "cau\userinputmenus\systems\displaySlider.cpp"

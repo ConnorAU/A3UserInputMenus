@@ -27,10 +27,27 @@
 #endif
 
 // ~ Display IDCs
-#define IDC_BACKGROUND 1
-#define IDC_TITLE 2
-#define IDC_FOOTER 3
-#define IDC_INPUTCONTAINER 4
-#define IDC_INPUT 5
-#define IDC_BUTTONL 6
-#define IDC_BUTTONR 7
+#define IDC_BACKGROUND              1
+#define IDC_TITLE                   2
+#define IDC_FOOTER                  3
+#define IDC_INPUTCONTAINER          4
+#define IDC_INPUT                   5
+#define IDC_BUTTONL                 6
+#define IDC_BUTTONR                 7
+
+// ~ Color picker IDCs
+#define IDC_COLOR_GROUP_GRID        10
+#define IDC_COLOR_GROUP_CTRLS       11
+#define IDC_COLOR_TOOLBOX_MODE      12
+#define IDC_COLOR_EDIT_INPUT_R      13
+#define IDC_COLOR_EDIT_INPUT_G      14
+#define IDC_COLOR_EDIT_INPUT_B      15
+#define IDC_COLOR_EDIT_INPUT_A      16
+#define IDC_COLOR_SLIDER_R          17
+#define IDC_COLOR_SLIDER_G          18
+#define IDC_COLOR_SLIDER_B          19
+#define IDC_COLOR_SLIDER_A          20
+
+// ~ Color picker values used on both display and script
+#define VAL_CELL_SIZE 2
+#define VAL_CELL_COUNT 25

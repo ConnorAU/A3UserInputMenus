@@ -97,6 +97,10 @@ class CAU_UserInputMenus_ctrlStaticBackground: CAU_UserInputMenus_ctrlStatic
 {
 	colorBackground[]={0.2,0.2,0.2,1};
 };
+class CAU_UserInputMenus_ctrlStaticOverlay: CAU_UserInputMenus_ctrlStatic
+{
+	colorBackground[]={0,0,0,0.5};
+};
 class CAU_UserInputMenus_ctrlStaticTitle: CAU_UserInputMenus_ctrlStatic
 {
 	moving=1;
@@ -116,6 +120,11 @@ class CAU_UserInputMenus_ctrlStaticFooter: CAU_UserInputMenus_ctrlStatic
 class CAU_UserInputMenus_ctrlStaticPictureTile: CAU_UserInputMenus_ctrlStatic
 {
 	style=144;
+};
+
+class CAU_UserInputMenus_ctrlStaticFrame: CAU_UserInputMenus_ctrlStatic
+{
+	style=64;
 };
 class CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles: CAU_UserInputMenus_ctrlStaticPictureTile
 {
@@ -289,6 +298,45 @@ class CAU_UserInputMenus_ctrlListbox: CAU_UserInputMenus_ctrlDefaultText
 	onLBDragging="";
 	onLBDrop="";
 };
+class CAU_UserInputMenus_ctrlToolbox: CAU_UserInputMenus_ctrlDefaultText
+{
+	type=6;
+	style=2;
+	colorBackground[]={0,0,0,0.5};
+	colorText[]={1,1,1,1};
+	colorTextSelect[]={1,1,1,1};
+	rows=1;
+	columns=1;
+	strings[]={};
+	values[]={};
+	color[]={1,0,1,1};
+	colorSelect[]={0,0,0,0};
+	colorTextDisable[]={0,0,0,0};
+	colorDisable[]={0,0,0,0};
+	colorSelectedBg[]=
+	{
+		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])",
+		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])",
+		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",
+		1
+	};
+	onCanDestroy="";
+	onDestroy="";
+	onMouseEnter="";
+	onMouseExit="";
+	onSetFocus="";
+	onKillFocus="";
+	onKeyDown="";
+	onKeyUp="";
+	onMouseButtonDown="";
+	onMouseButtonUp="";
+	onMouseButtonClick="";
+	onMouseButtonDblClick="";
+	onMouseZChanged="";
+	onMouseMoving="";
+	onMouseHolding="";
+	onToolBoxSelChanged="";
+};
 class CAU_UserInputMenus_ctrlControlsGroup: CAU_UserInputMenus_ctrlDefault
 {
 	type=15;
@@ -320,6 +368,17 @@ class CAU_UserInputMenus_ctrlControlsGroup: CAU_UserInputMenus_ctrlDefault
 	onMouseZChanged="";
 	onMouseMoving="";
 	onMouseHolding="";
+};
+class CAU_UserInputMenus_ctrlControlsGroupNoScrollbars: CAU_UserInputMenus_ctrlControlsGroup
+{
+	class VScrollbar: VScrollBar
+	{
+		width=0;
+	};
+	class HScrollbar: HScrollBar
+	{
+		height=0;
+	};
 };
 class CAU_UserInputMenus_ctrlStructuredText: CAU_UserInputMenus_ctrlDefaultText
 {

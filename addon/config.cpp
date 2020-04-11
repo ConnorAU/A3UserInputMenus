@@ -23,9 +23,11 @@ class CfgFunctions {
     #include "CfgFunctions.cpp"
 };
 
-#include "controls.cpp"
 #include "systems\_macros.inc"
 #include "systems\_defines.inc"
+
+#include "controls.cpp"
+#include "systems\displayColorPicker.cpp"
 #include "systems\displayGuiMessage.cpp"
 #include "systems\displayListbox.cpp"
 #include "systems\displaySlider.cpp"

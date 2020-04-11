@@ -13,15 +13,19 @@
 #define CAU_UserInputMenus_ctrlDefaultButton ctrlDefaultButton
 #define CAU_UserInputMenus_ctrlStatic ctrlStatic
 #define CAU_UserInputMenus_ctrlStaticBackground ctrlStaticBackground
+#define CAU_UserInputMenus_ctrlStaticOverlay ctrlStaticOverlay
 #define CAU_UserInputMenus_ctrlStaticTitle ctrlStaticTitle
 #define CAU_UserInputMenus_ctrlStaticFooter ctrlStaticFooter
 #define CAU_UserInputMenus_ctrlStaticPictureTile ctrlStaticPictureTile
+#define CAU_UserInputMenus_ctrlStaticFrame ctrlStaticFrame
 #define CAU_UserInputMenus_ctrlStaticBackgroundDisableTiles ctrlStaticBackgroundDisableTiles
 #define CAU_UserInputMenus_ctrlButton ctrlButton
 #define CAU_UserInputMenus_ctrlEdit ctrlEdit
 #define CAU_UserInputMenus_ctrlEditMulti ctrlEditMulti
 #define CAU_UserInputMenus_ctrlListbox ctrlListbox
+#define CAU_UserInputMenus_ctrlToolbox ctrlToolbox
 #define CAU_UserInputMenus_ctrlControlsGroup ctrlControlsGroup
+#define CAU_UserInputMenus_ctrlControlsGroupNoScrollbars ctrlControlsGroupNoScrollbars
 #define CAU_UserInputMenus_ctrlStructuredText ctrlStructuredText
 #define CAU_UserInputMenus_ctrlXSliderV ctrlXSliderV
 #define CAU_UserInputMenus_ctrlXSliderH ctrlXSliderH
@@ -31,15 +35,19 @@ class ctrlDefaultText;
 class ctrlDefaultButton;
 class ctrlStatic;
 class ctrlStaticBackground;
+class ctrlStaticOverlay;
 class ctrlStaticTitle;
 class ctrlStaticFooter;
 class ctrlStaticPictureTile;
+class ctrlStaticFrame;
 class ctrlStaticBackgroundDisableTiles;
 class ctrlButton;
 class ctrlEdit;
 class ctrlEditMulti;
 class ctrlListbox;
+class ctrlToolbox;
 class ctrlControlsGroup;
+class ctrlControlsGroupNoScrollbars;
 class ctrlStructuredText;
 class ctrlXSliderV;
 class ctrlXSliderH;
