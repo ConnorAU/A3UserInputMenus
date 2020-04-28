@@ -12,6 +12,7 @@
 
 params [
 	["_items",[],[[]]],
+	["_startIndex",0,[0]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
@@ -79,4 +80,4 @@ lbClear _ctrlInput;
 	_ctrlInput lbSetValue [_index,_value];
 } forEach _items;
 
-_ctrlInput lbSetCurSel 0;
+_ctrlInput lbSetCurSel (0 max _startIndex min (lbSize _ctrlInput - 1));
