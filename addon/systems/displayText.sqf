@@ -12,6 +12,7 @@
 
 params [
 	["_multiLine",false,[true]],
+	["_startText","",[""]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
@@ -38,3 +39,7 @@ private _return = {
 };
 
 #include "_common.inc"
+
+_ctrlInput ctrlSetText _startText;
+//_ctrlInput ctrlSetTextSelection [count _startText,0]; // TODO: activate this once the command enters production branch
+ctrlSetFocus _ctrlInput;
