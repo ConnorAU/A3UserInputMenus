@@ -13,6 +13,7 @@
 params [
 	["_items",[],[[]]],
 	["_startIndex",0,[0]],
+	["_multiSel",false,[true]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
@@ -21,12 +22,12 @@ params [
 ];
 
 if (!isNull _parentDisplay) then {
-	_parentDisplay createDisplay QUOTE(DISPLAY_NAME);
+	_parentDisplay createDisplay ([QUOTE(DISPLAY_NAME),QUOTE(JOIN(DISPLAY_NAME,Multi))] select _multiSel);
 } else {
-	createDialog QUOTE(DISPLAY_NAME);
+	createDialog ([QUOTE(DISPLAY_NAME),QUOTE(JOIN(DISPLAY_NAME,Multi))] select _multiSel);
 };
 
-private _return = {
+private _return = [{
 	params ["_display","_confirmed"];
 	USE_CTRL(_ctrlInput,IDC_INPUT);
 	private _code = _display getVariable ["code",{}];
@@ -39,7 +40,24 @@ private _return = {
 		private ["_display","_ctrlInput","_code"];
 		[] call _this;
 	};
-};
+},{
+	params ["_display","_confirmed"];
+	USE_CTRL(_ctrlInput,IDC_INPUT);
+	private _code = _display getVariable ["code",{}];
+	if !_confirmed then {
+		for "_i" from 0 to (lbSize _ctrlInput - 1) do {
+			_ctrlInput lbSetSelected [_i,false];
+		};
+	};
+	private _index = lbSelection _ctrlInput;
+	private _data = _index apply {_ctrlInput lbData _x};
+	private _value = _index apply {_ctrlInput lbValue _x};
+	_display closeDisplay 2;
+	_code call {
+		private ["_display","_ctrlInput","_code"];
+		[] call _this;
+	};
+}] select _multiSel;
 
 #include "_common.inc"
 

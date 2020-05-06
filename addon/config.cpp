@@ -30,6 +30,7 @@ class CfgFunctions {
 #include "systems\displayColorPicker.cpp"
 #include "systems\displayGuiMessage.cpp"
 #include "systems\displayListbox.cpp"
+#include "systems\displayListboxMulti.cpp"
 #include "systems\displaySlider.cpp"
 #include "systems\displayText.cpp"
 #include "systems\displayTextMulti.cpp"
