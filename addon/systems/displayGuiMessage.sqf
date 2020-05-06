@@ -12,12 +12,15 @@
 #include "_defines.inc"
 
 params [
-	["_text","",[""]],
+	["_parameters",[],[[]]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
+];
+_parameters params [
+	["_text","",[""]]
 ];
 
 if (!isNull _parentDisplay) then {

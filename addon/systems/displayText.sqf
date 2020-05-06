@@ -11,13 +11,16 @@
 #include "_defines.inc"
 
 params [
-	["_multiLine",false,[true]],
-	["_startText","",[""]],
+	["_parameters",[],[[]]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
+];
+_parameters params [
+	["_multiLine",false,[true]],
+	["_startText","",[""]]
 ];
 
 if (!isNull _parentDisplay) then {

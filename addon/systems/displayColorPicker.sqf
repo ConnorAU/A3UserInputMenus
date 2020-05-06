@@ -37,13 +37,17 @@
 #define GRID_COLOR(x,i) linearConversion[0,VAL_CELL_COUNT,x,i,1,true]
 
 params [
-	["_color",[],[[],""]],
+	["_parameters",[],[[]]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
 ];
+_parameters params [
+	["_color",[],[[],""]]
+];
+
 if (!isNull _parentDisplay) then {
 	_parentDisplay createDisplay QUOTE(DISPLAY_NAME);
 } else {

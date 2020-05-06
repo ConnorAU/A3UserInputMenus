@@ -11,15 +11,18 @@
 #include "_defines.inc"
 
 params [
-	["_range",[0,0],[[]],2],
-	["_position",0,[0]],
-	["_speed",[1,1],[[]],2],
+	["_parameters",[],[[]]],
 	["_title","",[""]],
 	["_formatVal",{},[{}]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
+];
+_parameters params [
+	["_range",[0,0],[[]],2],
+	["_position",0,[0]],
+	["_speed",[1,1],[[]],2]
 ];
 
 if (!isNull _parentDisplay) then {

@@ -11,14 +11,17 @@
 #include "_defines.inc"
 
 params [
-	["_items",[],[[]]],
-	["_startIndex",0,[0]],
-	["_multiSel",false,[true]],
+	["_parameters",[],[[]]],
 	["_title","",[""]],
 	["_code",{},[{}]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
+];
+_parameters params [
+	["_items",[],[[]]],
+	["_startIndex",0,[0]],
+	["_multiSel",false,[true]]
 ];
 
 if (!isNull _parentDisplay) then {
@@ -98,4 +101,6 @@ lbClear _ctrlInput;
 	_ctrlInput lbSetValue [_index,_value];
 } forEach _items;
 
-_ctrlInput lbSetCurSel (0 max _startIndex min (lbSize _ctrlInput - 1));
+private _index = 0 max _startIndex min (lbSize _ctrlInput - 1);
+_ctrlInput lbSetCurSel _index;
+if _multiSel then {_ctrlInput lbSetSelected [_index,true]};
