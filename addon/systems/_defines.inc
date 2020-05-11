@@ -51,3 +51,11 @@
 // ~ Color picker values used on both display and script
 #define VAL_CELL_SIZE 2
 #define VAL_CELL_COUNT 25
+
+// ~ Progress bar IDCs
+#define IDC_PROGRESS_TILES 1
+#define IDC_PROGRESS_BACKGROUND 2
+#define IDC_PROGRESS_BAR 3
+#define IDC_PROGRESS_IMAGE 4
+#define IDC_PROGRESS_TEXT 5
+#define IDC_PROGRESS_BUTTON 6

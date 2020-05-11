@@ -31,6 +31,7 @@ class CfgFunctions {
 #include "systems\displayGuiMessage.cpp"
 #include "systems\displayListbox.cpp"
 #include "systems\displayListboxMulti.cpp"
+#include "systems\displayProgressBar.cpp"
 #include "systems\displaySlider.cpp"
 #include "systems\displayText.cpp"
 #include "systems\displayTextMulti.cpp"

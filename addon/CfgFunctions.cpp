@@ -12,6 +12,7 @@ class CAU_UserInputMenus {
 		FUNC(colorPicker)
 		FUNC(guiMessage)
 		FUNC(listBox)
+		FUNC(progressBar)
 		FUNC(slider)
 		FUNC(text)
 		#undef FUNC

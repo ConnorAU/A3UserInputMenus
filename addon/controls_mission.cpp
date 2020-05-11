@@ -93,6 +93,10 @@ class CAU_UserInputMenus_ctrlStatic: CAU_UserInputMenus_ctrlDefaultText
 	onMouseHolding="";
 	onVideoStopped="";
 };
+class CAU_UserInputMenus_ctrlStaticPicture: CAU_UserInputMenus_ctrlStatic
+{
+	style=48;
+};
 class CAU_UserInputMenus_ctrlStaticBackground: CAU_UserInputMenus_ctrlStatic
 {
 	colorBackground[]={0.2,0.2,0.2,1};
@@ -197,6 +201,10 @@ class CAU_UserInputMenus_ctrlButton: CAU_UserInputMenus_ctrlDefaultButton
 	onButtonClick="";
 	onButtonDown="";
 	onButtonUp="";
+};
+class CAU_UserInputMenus_ctrlButtonPicture: CAU_UserInputMenus_ctrlButton
+{
+	style="0x02 + 0x30";
 };
 class CAU_UserInputMenus_ctrlEdit: CAU_UserInputMenus_ctrlDefaultText
 {

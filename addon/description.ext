@@ -18,6 +18,7 @@ class CfgFunctions {
 #include "cau\userinputmenus\systems\displayGuiMessage.cpp"
 #include "cau\userinputmenus\systems\displayListbox.cpp"
 #include "cau\userinputmenus\systems\displayListboxMulti.cpp"
+#include "cau\userinputmenus\systems\displayProgressBar.cpp"
 #include "cau\userinputmenus\systems\displaySlider.cpp"
 #include "cau\userinputmenus\systems\displayText.cpp"
 #include "cau\userinputmenus\systems\displayTextMulti.cpp"
