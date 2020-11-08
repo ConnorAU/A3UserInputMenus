@@ -45,6 +45,7 @@ class CAU_UserInputMenus_displayListboxMulti {
             idc=IDC_INPUT;
             size=PX_HA(SIZE_M);
             style="0x10 + 0x20";
+			period=0;
 
             x=CENTER_XA(DIALOG_W) + PX_WA(2);
             y=CENTER_YA(DIALOG_H) + PX_HA(SIZE_M) + PX_HA(2);
