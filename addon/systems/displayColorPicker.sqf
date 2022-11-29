@@ -39,7 +39,7 @@
 params [
 	["_parameters",[],[[]]],
 	["_title","",[""]],
-	["_code",{},[{}]],
+	["_code",{},[{},[]]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
@@ -47,6 +47,7 @@ params [
 _parameters params [
 	["_color",[],[[],""]]
 ];
+_code params [["_code",{},[{}]],["_args",[],[[]]]];
 
 if (!isNull _parentDisplay) then {
 	_parentDisplay createDisplay QUOTE(DISPLAY_NAME);
@@ -56,6 +57,7 @@ if (!isNull _parentDisplay) then {
 
 private _return = {
 	params ["_display","_confirmed"];
+	private _args = _display getVariable ["args",[]];
 	private _code = _display getVariable ["code",{}];
 
 	private _colorRGBA1 = _display getVariable ["selectedColor",[0,0,0,1]];
@@ -67,9 +69,9 @@ private _return = {
 	};
 
 	_display closeDisplay 2;
-	_code call {
-		private ["_display","_code"];
-		[] call _this;
+	[_args,_code] call {
+		private ["_display","_code","_args"];
+		(_this#0) call (_this#1);
 	};
 };
 

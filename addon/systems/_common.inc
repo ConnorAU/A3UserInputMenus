@@ -15,6 +15,7 @@ USE_CTRL(_ctrlInput,IDC_INPUT);
 USE_CTRL(_ctrlButtonL,IDC_BUTTONL);
 USE_CTRL(_ctrlButtonR,IDC_BUTTONR);
 
+_display setVariable ["args",_args];
 _display setVariable ["code",_code];
 _display setVariable ["return",_return];
 _ctrlTitle ctrlSetText _title;

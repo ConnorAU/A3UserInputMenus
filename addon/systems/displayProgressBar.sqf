@@ -18,7 +18,7 @@
 params [
 	["_parameters",[],[[]]],
 	["_title","Progress",[""]],
-	["_code",{},[{}]],
+	["_code",{},[{},[]]],
 	["_parentDisplay",displayNull,[displayNull]]
 ];
 _parameters params [
@@ -29,6 +29,7 @@ _parameters params [
 	["_condition",{},[{}]],
 	["_onProgress",{},[{}]]
 ];
+_code params [["_code",{},[{}]],["_args",[],[[]]]];
 
 if (_duration <= 0) exitWith {["Duration too short: %1",_duration] call BIS_fnc_error};
 
@@ -80,13 +81,15 @@ _parentDisplay displayAddEventHandler ["Unload",{
 private _exit = {
 	USE_DISPLAY(THIS_DISPLAY);
 	private _parentDisplay = ctrlParent _display;
-	
+
+	private _args = GVAR(args,[]);
 	private _code = GVAR(code,{});
 
 	removeMissionEventHandler ["EachFrame",GVAR(eachFrameID,-1)];
 	if GVAR(overlay,true) then {
 		ctrlDelete _display;
 		// wipe variables from parent display because we aren't closing it
+		SVAR(args,nil);
 		SVAR(code,nil);
 		SVAR(arguments,nil);
 		SVAR(condition,nil);
@@ -101,15 +104,16 @@ private _exit = {
 		_parentDisplay closeDisplay 0;
 	};
 
-	[_this == 0,_code] call {
+	[_this == 0,_args,_code] call {
 		// Wiping inherited local variables from scope
-		private ["_parentDisplay","_display","_canProgress","_progress","_ctrlBackground","_ctrlBar","_ctrlText","_code"];
+		private ["_parentDisplay","_display","_canProgress","_progress","_ctrlBackground","_ctrlBar","_ctrlText","_code","_args"];
 		params ["_completed"];
-		[] call (_this#1);
+		(_this#1) call (_this#2);
 	};
 };
 
 // Save data to parent display
+SVAR(args,_args);
 SVAR(code,_code);
 SVAR(arguments,_arguments);
 SVAR(condition,_condition);
@@ -132,7 +136,7 @@ private _eachFrameID = addMissionEventHandler ["EachFrame",{
 		private ["_display","_parentDisplay"];
 		(_this#0) call (_this#1);
 	};
-	if (!isNil "_canProgress" && {!(_canProgress isEqualType true) || {!_canProgress}}) exitWith {1 call GVAR(exit,{})};	
+	if (!isNil "_canProgress" && {!(_canProgress isEqualType true) || {!_canProgress}}) exitWith {1 call GVAR(exit,{})};
 
 	GVAR(onProgress,{}) call {
 		// Wiping inherited local variables from scope

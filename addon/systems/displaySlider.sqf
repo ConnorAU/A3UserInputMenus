@@ -14,7 +14,7 @@ params [
 	["_parameters",[],[[]]],
 	["_title","",[""]],
 	["_formatVal",{},[{}]],
-	["_code",{},[{}]],
+	["_code",{},[{},[]]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
@@ -24,6 +24,7 @@ _parameters params [
 	["_position",0,[0]],
 	["_speed",[1,1],[[]],2]
 ];
+_code params [["_code",{},[{}]],["_args",[],[[]]]];
 
 if (!isNull _parentDisplay) then {
 	_parentDisplay createDisplay QUOTE(DISPLAY_NAME);
@@ -34,12 +35,13 @@ if (!isNull _parentDisplay) then {
 private _return = {
 	params ["_display","_confirmed"];
 	USE_CTRL(_ctrlInput,IDC_INPUT);
+	private _args = _display getVariable ["args",[]];
 	private _code = _display getVariable ["code",{}];
 	private _position = [-1,sliderPosition _ctrlInput] select _confirmed;
 	_display closeDisplay 2;
-	_code call {
-		private ["_display","_ctrlInput","_code"];
-		[] call _this;
+	[_args,_code] call {
+		private ["_display","_ctrlInput","_code","_args"];
+		(_this#0) call (_this#1);
 	};
 };
 

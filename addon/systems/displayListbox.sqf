@@ -13,7 +13,7 @@
 params [
 	["_parameters",[],[[]]],
 	["_title","",[""]],
-	["_code",{},[{}]],
+	["_code",{},[{},[]]],
 	["_button1","",[""]],
 	["_button2",0,[""]],
 	["_parentDisplay",displayNull,[displayNull]]
@@ -23,6 +23,7 @@ _parameters params [
 	["_startIndex",0,[0]],
 	["_multiSel",false,[true]]
 ];
+_code params [["_code",{},[{}]],["_args",[],[[]]]];
 
 if (!isNull _parentDisplay) then {
 	_parentDisplay createDisplay ([QUOTE(DISPLAY_NAME),QUOTE(JOIN(DISPLAY_NAME,Multi))] select _multiSel);
@@ -33,19 +34,21 @@ if (!isNull _parentDisplay) then {
 private _return = [{
 	params ["_display","_confirmed"];
 	USE_CTRL(_ctrlInput,IDC_INPUT);
+	private _args = _display getVariable ["args",[]];
 	private _code = _display getVariable ["code",{}];
 	if !_confirmed then {_ctrlInput lbSetCurSel -1};
 	private _index = lbCurSel _ctrlInput;
 	private _data = _ctrlInput lbData _index;
 	private _value = _ctrlInput lbValue _index;
 	_display closeDisplay 2;
-	_code call {
-		private ["_display","_ctrlInput","_code"];
-		[] call _this;
+	[_args,_code] call {
+		private ["_display","_ctrlInput","_code","_args"];
+		(_this#0) call (_this#1);
 	};
 },{
 	params ["_display","_confirmed"];
 	USE_CTRL(_ctrlInput,IDC_INPUT);
+	private _args = _display getVariable ["args",[]];
 	private _code = _display getVariable ["code",{}];
 	if !_confirmed then {
 		for "_i" from 0 to (lbSize _ctrlInput - 1) do {
@@ -56,9 +59,9 @@ private _return = [{
 	private _data = _index apply {_ctrlInput lbData _x};
 	private _value = _index apply {_ctrlInput lbValue _x};
 	_display closeDisplay 2;
-	_code call {
-		private ["_display","_ctrlInput","_code"];
-		[] call _this;
+	[_args,_code] call {
+		private ["_display","_ctrlInput","_code","_args"];
+		(_this#0) call (_this#1);
 	};
 }] select _multiSel;
 
@@ -75,7 +78,7 @@ lbClear _ctrlInput;
 		["_data","",[""]],
 		["_value",-1,[0]]
 	];
-	
+
 	_textLData params [["_text","",[""]],["_color",[1,1,1,1],[[]],4]];
 	private _index = _ctrlInput lbAdd _text;
 	_ctrlInput lbSetColor [_index,_color];
