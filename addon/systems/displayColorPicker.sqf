@@ -52,7 +52,11 @@ _code params [["_code",{},[{}]],["_args",[],[[]]]];
 if (!isNull _parentDisplay) then {
 	_parentDisplay createDisplay QUOTE(DISPLAY_NAME);
 } else {
-	createDialog QUOTE(DISPLAY_NAME);
+	if (getClientStateNumber >= 8) then {
+		createDialog [QUOTE(DISPLAY_NAME), true];
+	} else {
+		createDialog QUOTE(DISPLAY_NAME);
+	};
 };
 
 private _return = {
