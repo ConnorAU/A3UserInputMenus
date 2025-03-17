@@ -28,7 +28,7 @@ _code params [["_code",{},[{}]],["_args",[],[[]]]];
 if (!isNull _parentDisplay) then {
 	_parentDisplay createDisplay ([QUOTE(DISPLAY_NAME),QUOTE(JOIN(DISPLAY_NAME,Multi))] select _multiSel);
 } else {
-	createDialog [([QUOTE(DISPLAY_NAME),QUOTE(JOIN(DISPLAY_NAME,Multi))] select _multiSel), (getClientStateNumber == 8 || getClientStateNumber == 9)];
+	createDialog [([QUOTE(DISPLAY_NAME),QUOTE(JOIN(DISPLAY_NAME,Multi))] select _multiSel),getClientStateNumber in [8,9]];
 };
 
 private _return = [{
